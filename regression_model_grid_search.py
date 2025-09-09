@@ -5,28 +5,12 @@ from xgboost import XGBRegressor
 X_test = [] , X_train = [], y_train = [], y_test =[]
 
 reg_models = {
-    "LinearRegression": LinearRegression(),
-    "ElasticNet": ElasticNet(random_state=42, max_iter=5000),
-    "RandomForest": RandomForestRegressor(random_state=42),
     "GradientBoosting": GradientBoostingRegressor(random_state=42),
     "XGBoost": XGBRegressor(random_state=42, eval_metric="rmse")
 }
 
 
 reg_param_grids = {
-    "LinearRegression": {},  # no hyperparameters to tune
-
-    "ElasticNet": {
-        "alpha": [0.01, 0.1, 1, 10],
-        "l1_ratio": [0.2, 0.5, 0.8]
-    },
-
-    "RandomForest": {
-        "n_estimators": [100, 300],
-        "max_depth": [None, 10, 20],
-        "min_samples_split": [2, 5],
-        "min_samples_leaf": [1, 2]
-    },
 
     "GradientBoosting": {
         "n_estimators": [100, 300],

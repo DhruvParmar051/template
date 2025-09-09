@@ -8,8 +8,6 @@ reg_models = {
     "LinearRegression": LinearRegression(),
     "ElasticNet": ElasticNet(random_state=42, max_iter=5000),
     "RandomForest": RandomForestRegressor(random_state=42),
-    "GradientBoosting": GradientBoostingRegressor(random_state=42),
-    "XGBoost": XGBRegressor(random_state=42, eval_metric="rmse")
 }
 
 
