@@ -12,18 +12,19 @@ reg_models = {
 
 
 reg_param_grids = {
-    "LinearRegression": {},  
+    "LinearRegression": {}, 
 
     "ElasticNet": {
-        "alpha": [0.01, 0.1, 1, 10],
-        "l1_ratio": [0.2, 0.5, 0.8]
+        "alpha": [0.01, 0.1, 1],
+        "l1_ratio": [0.1, 0.5, 0.9]
     },
 
     "RandomForest": {
-        "n_estimators": [100, 300],
-        "max_depth": [None, 10, 20],
-        "min_samples_split": [2, 5],
-        "min_samples_leaf": [1, 2]
+        "n_estimators": [200, 300 ,400],          
+        "max_depth": [None, 10, 20],         
+        "min_samples_split": [2, 5],     
+        "min_samples_leaf": [1, 2],           
+        "max_features": ['sqrt']              
     },
 
    

@@ -9,23 +9,29 @@ reg_models = {
     "XGBoost": XGBRegressor(random_state=42, eval_metric="rmse")
 }
 
-
+reg_models = {
+    
+    "GradientBoosting": GradientBoostingRegressor(random_state=42),
+    "XGBoost": XGBRegressor(random_state=42, eval_metric="rmse") # tree_method='gpu_hist' predictor='gpu_predictor',
+}
 reg_param_grids = {
 
     "GradientBoosting": {
-        "n_estimators": [100, 300],
-        "learning_rate": [0.01, 0.1],
-        "max_depth": [3, 5]
+        "n_estimators": [200, 250,300],
+        "learning_rate": [0.05, 0.1],        
+        "max_depth": [3, 4],                  
+        "subsample": [0.8, 1.0],          
     },
 
     "XGBoost": {
-        "n_estimators": [200, 500],
-        "learning_rate": [0.01, 0.1],
-        "max_depth": [3, 5, 7],
+        "n_estimators": [200, 250,300],
+        "learning_rate": [0.05, 0.1],
+        "max_depth": [3, 5],
         "subsample": [0.8, 1.0],
-        "colsample_bytree": [0.8, 1.0]
+        "colsample_bytree": [0.8, 1.0],
     }
 }
+
 
 
 from sklearn.model_selection import GridSearchCV
