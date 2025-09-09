@@ -13,32 +13,36 @@ reg_models = {
 }
 
 
-
 reg_param_grids = {
     "LinearRegression": {},  # no hyperparameters to tune
+
     "ElasticNet": {
         "alpha": [0.01, 0.1, 1, 10],
-        "l1_ratio": [0.1, 0.5, 0.9, 1.0]
+        "l1_ratio": [0.2, 0.5, 0.8]
     },
+
     "RandomForest": {
-        "n_estimators": [100, 200],
-        "max_depth": [None, 5, 10],
+        "n_estimators": [100, 300],
+        "max_depth": [None, 10, 20],
         "min_samples_split": [2, 5],
         "min_samples_leaf": [1, 2]
     },
+
     "GradientBoosting": {
-        "n_estimators": [100, 200],
-        "learning_rate": [0.01, 0.05, 0.1],
+        "n_estimators": [100, 300],
+        "learning_rate": [0.01, 0.1],
         "max_depth": [3, 5]
     },
+
     "XGBoost": {
-        "n_estimators": [100, 200],
-        "learning_rate": [0.01, 0.05, 0.1],
-        "max_depth": [3, 5],
+        "n_estimators": [200, 500],
+        "learning_rate": [0.01, 0.1],
+        "max_depth": [3, 5, 7],
         "subsample": [0.8, 1.0],
         "colsample_bytree": [0.8, 1.0]
     }
 }
+
 
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
